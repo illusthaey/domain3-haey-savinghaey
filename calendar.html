@@ -1,1 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>일정 달력</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="app-nav"></div>
+
+  <main class="container">
+    <h1>일정 달력</h1>
+    <p class="subtitle">월/주/3일 뷰를 동일 데이터로 운용합니다. (로컬 저장)</p>
+
+    <section class="section">
+      <div class="row between wrap">
+        <div>
+          <div style="font-weight:900;" id="viewName">월간달력</div>
+          <div class="muted">기준일: <input id="date" type="date" style="max-width:220px;" /></div>
+        </div>
+        <div class="row wrap right">
+          <button class="btn btn-lightgrey" id="btnMonth">월간</button>
+          <button class="btn btn-lightgrey" id="btnWeek">주간</button>
+          <button class="btn btn-lightgrey" id="btn3day">3일</button>
+          <button class="btn primary" id="btnNew">일정 추가</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="calWrap"></div>
+
+    <!-- 모달 -->
+    <div class="modal" id="evModal">
+      <div class="modal-backdrop" id="evBackdrop"></div>
+      <div class="modal-stage">
+        <div class="modal-panel">
+          <div class="row between wrap">
+            <div style="font-weight:900;">일정 등록/수정</div>
+            <button class="btn btn-lightgrey" id="evClose">닫기</button>
+          </div>
+
+          <input type="hidden" id="evId" />
+
+          <div class="grid two" style="margin-top:12px;">
+            <div>
+              <div class="muted">날짜(필수)</div>
+              <input type="date" id="evDate" />
+            </div>
+            <div>
+              <div class="muted">시간(선택)</div>
+              <input type="time" id="evTime" />
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <div class="muted">제목(필수)</div>
+            <input type="text" id="evTitle" placeholder="예: 계약서 서명 일정" />
+          </div>
+
+          <div style="margin-top:12px;">
+            <div class="muted">메모(선택)</div>
+            <textarea id="evMemo" rows="4" placeholder="관련 링크/담당자/주의사항 등"></textarea>
+          </div>
+
+          <div class="row right wrap" style="margin-top:12px;">
+            <button class="btn primary" id="evSave">저장</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer"><div class="shell"><p>© 2026. 개인용 업무보조 페이지</p></div></footer>
+
+  <script src="/static/app.js"></script>
+  <script src="/static/calendar.js"></script>
+  <script>
+    App.mountNav();
+
+    const d = document.getElementById("date");
+    d.value = App.todayStr();
+    d.addEventListener("change", () => Calendar.switchView(Calendar.view, d.value));
+
+    Calendar.init();
+
+    // 대시보드에서 #new=YYYY-MM-DD 로 넘어오면 자동으로 모달 열기
+    if (location.hash && location.hash.startsWith("#new=")) {
+      const target = decodeURIComponent(location.hash.replace("#new=", ""));
+      if (/^\d{4}-\d{2}-\d{2}$/.test(target)) {
+        d.value = target;
+        Calendar.switchView("3day", target);
+        // 약간 지연 후 모달 오픈(렌더링 안정화)
+        setTimeout(()=> {
+          document.getElementById("evDate").value = target;
+          Calendar.openNew();
+        }, 50);
+      }
+      // 해시 정리(선택)
+      history.replaceState(null, "", "/calendar.html");
+    }
+  </script>
+</body>
+</html>
 
