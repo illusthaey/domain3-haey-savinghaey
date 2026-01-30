@@ -1,13 +1,14 @@
 /* static/style.css */
 
 :root{
-  --bg:#fff;
-  --text:#111;
-  --muted:rgba(0,0,0,0.62);
-  --line:rgba(0,0,0,0.12);
-  --line2:rgba(0,0,0,0.18);
+  --bg:#f4fbf9;                 /* 페이지 전체 연한 민트 */
+  --text:#0f1f1c;               /* 살짝 어두운 민트 계열 텍스트 */
+  --muted:rgba(15,31,28,0.55);  /* 설명 문구용 */
+  --line:rgba(40,160,140,0.18); /* 테두리 민트 */
+  --line2:rgba(40,160,140,0.28);
   --radius:16px;
 }
+
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
@@ -303,3 +304,4 @@ textarea{ resize:vertical; }
 @media (max-width:640px){
   .kv{ grid-template-columns: 1fr; }
 }
+
