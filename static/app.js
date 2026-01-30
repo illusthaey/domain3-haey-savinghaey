@@ -71,7 +71,6 @@
           <div class="header-hero">
             <h1 class="header-title">(타이틀) 개인 업무 보조 웹페이지</h1>
             <div class="header-byline">-제작·운영: 천재 고주무관</div>
-            <div class="header-rule" aria-hidden="true"></div>
           </div>
         </div>
       </header>
@@ -138,3 +137,4 @@
     mountHeader
   };
 })();
+
