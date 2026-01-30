@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>업무보조 도구 모음</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="app-nav"></div>
+
+  <main class="container">
+    <h1>업무보조 도구 모음</h1>
+    <p class="subtitle">
+      본 페이지는 읽기 전용 운영(데이터 저장 없음) 기준입니다. 템플릿/문구 관리는 GitHub에서 <code>data/store.json</code>을 수정합니다.
+    </p>
+
+    <section class="section">
+      <h2 class="local-h2">문서 편집 도구</h2>
+
+      <div class="tabs" role="tablist" aria-label="문서 편집 탭">
+        <button class="tab" role="tab" id="tab-templates" aria-selected="true" aria-controls="panel-templates">템플릿 문구</button>
+        <button class="tab" role="tab" id="tab-clean" aria-selected="false" aria-controls="panel-clean">텍스트 정리</button>
+        <button class="tab" role="tab" id="tab-replace" aria-selected="false" aria-controls="panel-replace">찾기/치환</button>
+        <button class="tab" role="tab" id="tab-table" aria-selected="false" aria-controls="panel-table">TSV/CSV 표</button>
+      </div>
+
+      <!-- 템플릿 -->
+      <div class="tab-panel is-open" role="tabpanel" id="panel-templates" aria-labelledby="tab-templates">
+        <div class="card">
+          <div class="kv">
+            <div class="muted">카테고리</div>
+            <select id="tplCategory"></select>
+
+            <div class="muted">템플릿</div>
+            <select id="tplItem"></select>
+          </div>
+
+          <div class="row wrap right" style="margin-top:10px;">
+            <button class="btn" id="btnLoadTemplate">편집기에 적용</button>
+            <button class="btn" id="btnCopyEditor">편집기 내용 복사</button>
+          </div>
+
+          <div class="muted" style="margin-top:8px;">
+            · 템플릿 추가/수정은 <code>store.json → templates.categories</code>에서 관리
+          </div>
+        </div>
+      </div>
+
+      <!-- 텍스트 정리 -->
+      <div class="tab-panel" role="tabpanel" id="panel-clean" aria-labelledby="tab-clean">
+        <div class="card">
+          <div class="row wrap">
+            <button class="btn" data-act="trimLines">줄 앞뒤 공백 제거</button>
+            <button class="btn" data-act="collapseBlank">연속 공백줄 1줄로</button>
+            <button class="btn" data-act="dedupeLines">중복 줄 제거</button>
+            <button class="btn" data-act="numberLines">줄 번호 매기기</button>
+          </div>
+          <div class="muted" style="margin-top:8px;">
+            · 원문 보존 필요 시, 적용 전 복사 후 진행
+          </div>
+        </div>
+      </div>
+
+      <!-- 찾기/치환 -->
+      <div class="tab-panel" role="tabpanel" id="panel-replace" aria-labelledby="tab-replace">
+        <div class="card">
+          <div class="kv">
+            <div class="muted">찾을 문자열</div>
+            <input type="text" id="findText" placeholder="예: (학교명)" />
+
+            <div class="muted">바꿀 문자열</div>
+            <input type="text" id="replaceText" placeholder="예: 문막초등학교" />
+          </div>
+
+          <div class="row wrap" style="margin-top:10px;">
+            <label class="row" style="gap:6px;">
+              <input type="checkbox" id="useRegex" />
+              <span class="muted">정규식 사용</span>
+            </label>
+            <label class="row" style="gap:6px;">
+              <input type="checkbox" id="ignoreCase" />
+              <span class="muted">대소문자 무시</span>
+            </label>
+            <div style="flex:1;"></div>
+            <button class="btn" id="btnReplace">치환 적용</button>
+          </div>
+
+          <div class="muted" style="margin-top:8px;">
+            · 정규식 사용 시, ( ) [ ] 등의 메타문자 주의
+          </div>
+        </div>
+      </div>
+
+      <!-- TSV/CSV 표 -->
+      <div class="tab-panel" role="tabpanel" id="panel-table" aria-labelledby="tab-table">
+        <div class="card">
+          <div class="row wrap">
+            <button class="btn" id="btnParseTSV">TSV(탭) → 표</button>
+            <button class="btn" id="btnParseCSV">CSV(쉼표) → 표</button>
+          </div>
+          <div class="muted" style="margin-top:8px;">
+            · 붙여넣기한 데이터를 “표 형태로 확인”하는 용도(저장 없음)
+          </div>
+          <div id="tablePreview" style="margin-top:12px;"></div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="editor-grid">
+        <div class="editor-box">
+          <h3 class="local-h3">편집기</h3>
+          <textarea id="editor" placeholder="여기에 문구/원문을 붙여넣고 도구를 적용하세요."></textarea>
+        </div>
+        <div class="editor-box">
+          <h3 class="local-h3">미리보기</h3>
+          <textarea id="preview" readonly></textarea>
+          <div class="muted" style="margin-top:8px;">
+            · 미리보기는 편집기 내용을 그대로 반영(읽기전용)
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section">
+      <h2 class="local-h2">운영 방식(권장)</h2>
+      <div class="muted">
+        · 기능(도구) 확장: <code>/static/doc_tools.js</code>에 기능 추가<br/>
+        · 템플릿 확장: <code>/data/store.json</code>에서 templates 수정<br/>
+        · 본 페이지는 브라우저 저장을 하지 않으므로 “업무 기록”은 별도 문서/시스템에 보관
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell"><p>© 2026. 개인용 업무보조 페이지 · 읽기 전용 운영</p></div></footer>
+
+  <script src="/static/app.js"></script>
+  <script src="/static/doc_tools.js"></script>
+  <script>
+    App.mountNav();
+    DocTools.init().catch(err => {
+      console.error(err);
+      alert("도구 초기화 실패: store.json 경로/배포 상태 확인 필요");
+    });
+  </script>
+</body>
+</html>
