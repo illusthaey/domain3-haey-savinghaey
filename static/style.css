@@ -3,7 +3,7 @@
 :root{
   --bg:#f4fbf9;                 /* 연한 민트 배경 */
   --text:#000000;               /* 본문 텍스트: 순수 검정 */
-  --muted:rgba(0,0,0,0.55);     /* 보조 텍스트: 검정 반투명 */
+  --muted:rgba(0,0,0,0.65);     /* 보조 텍스트: 검정 반투명 */
   --line:rgba(40,160,140,0.18); /* 민트 테두리 */
   --line2:rgba(40,160,140,0.28);
   --radius:16px;
@@ -305,6 +305,7 @@ textarea{ resize:vertical; }
 @media (max-width:640px){
   .kv{ grid-template-columns: 1fr; }
 }
+
 
 
 
