@@ -1,15 +1,34 @@
-
-[
-  {
-    "title": "학교회계 예산편성 편람",
-    "year": "2026",
-    "tags": ["회계", "예산"],
-    "file": "/manuals/학교회계_예산편성_편람_2026.pdf"
+{
+  "meta": {
+    "version": 1,
+    "updated_at": "2026-01-31T00:00:00+09:00",
+    "note": "GitHub에서 data/store.json을 직접 수정하는 운영 방식"
   },
-  {
-    "title": "계약 실무 편람",
-    "year": "2025",
-    "tags": ["계약", "입찰"],
-    "file": "/manuals/계약_실무_편람_2025.pdf"
+  "calendar": {
+    "events": [
+      { "id": "e1", "date": "2026-02-03", "time": "10:00", "title": "계약서 서명", "memo": "결재 라인 사전 확인" },
+      { "id": "e2", "date": "2026-02-03", "time": "14:00", "title": "세입 마감 점검", "memo": "미납자 현황 확인" },
+      { "id": "e3", "date": "2026-02-04", "time": "", "title": "공문 회신(종일)", "memo": "" }
+    ]
+  },
+  "favorites": {
+    "items": [
+      { "name": "에듀파인", "url": "https://example.com", "memo": "학교회계/수입관리" },
+      { "name": "나이스", "url": "https://example.com", "memo": "인사/복무" },
+      { "name": "업무편람 폴더", "url": "https://example.com", "memo": "PDF 링크" }
+    ]
+  },
+  "approvers": {
+    "status": [
+      { "name": "교장", "role": "최종 결재", "status": "재실", "until": "", "note": "" },
+      { "name": "교감", "role": "중간 결재", "status": "출장", "until": "16:00", "note": "교육지원청" },
+      { "name": "행정실장", "role": "예산/회계", "status": "재실", "until": "", "note": "" }
+    ]
+  },
+  "manuals": {
+    "list": [
+      { "title": "학교회계 예산편성 편람", "year": "2026", "tags": ["회계", "예산"], "file": "/manuals/학교회계_예산편성_편람_2026.pdf" },
+      { "title": "계약 실무 편람", "year": "2025", "tags": ["계약", "입찰"], "file": "/manuals/계약_실무_편람_2025.pdf" }
+    ]
   }
-]
+}
