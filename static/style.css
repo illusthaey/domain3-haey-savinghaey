@@ -44,12 +44,13 @@ h1{ margin:8px 0 6px; font-size:1.6rem; }
 .muted{ color:var(--muted); }
 
 .section{
-  background:rgba(0,0,0,0.03);
+  background:rgba(180,235,225,0.35); /* 연한 민트 배경 */
   border:1px solid var(--line);
   border-radius:var(--radius);
   padding:14px;
   margin:14px 0;
 }
+
 .card{
   background:#fff;
   border:1px solid var(--line);
@@ -304,4 +305,5 @@ textarea{ resize:vertical; }
 @media (max-width:640px){
   .kv{ grid-template-columns: 1fr; }
 }
+
 
