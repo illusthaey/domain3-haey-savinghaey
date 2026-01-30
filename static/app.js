@@ -3,6 +3,7 @@
   const NAV = [
     { href: "/index.html", label: "대시보드" },
     { href: "/tools.html", label: "업무 효율화 도구 모음" },
+    { href: "/assist-tools.html", label: "업무보조 도구 모음" },   // ← 신규
     { href: "/calendar.html", label: "일정 달력" },
     { href: "/favorites.html", label: "즐겨찾기" },
     { href: "/manuals.html", label: "편람(PDF)" }
@@ -21,11 +22,10 @@
     return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
   }
 
-  // store.json (GitHub에서 수정)
   const STORE_URL = "/data/store.json";
 
   async function fetchStore(){
-    const bust = Date.now(); // 캐시 우회
+    const bust = Date.now();
     const res = await fetch(`${STORE_URL}?v=${bust}`, { cache: "no-store" });
     if (!res.ok) throw new Error("store.json 로드 실패");
     return await res.json();
