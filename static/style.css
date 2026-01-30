@@ -127,12 +127,7 @@ textarea{ resize:vertical; }
   font-weight:650;
   font-size:0.95rem;
 }
-.header-rule{
-  margin-top: 14px;
-  height: 1px;
-  background: rgba(0,0,0,0.18);
-  border-radius: 0;
-}
+
 
 
 
@@ -288,5 +283,6 @@ textarea{ resize:vertical; }
   white-space:nowrap;
 }
 .header-home:hover{ background:rgba(0,0,0,0.10); }
+
 
 
