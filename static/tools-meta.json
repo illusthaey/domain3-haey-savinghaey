@@ -1,0 +1,136 @@
+{
+  "bases": {
+    "deploy": "https://edusprouthaey.co.kr",
+    "personal": "https://savinghaey.co.kr"
+  },
+  "categories": [
+    { "id": "labor-provider", "title": "노무제공자 (방과후강사 등)", "order": 10 },
+    { "id": "edu-workers", "title": "교육공무직 인건비 관련", "order": 20 },
+    { "id": "leave-allowance", "title": "휴가 · 수당", "order": 30 },
+    { "id": "retirement", "title": "퇴직 · 연금", "order": 40 },
+    { "id": "misc", "title": "기타", "order": 90 }
+  ],
+  "tools": [
+    {
+      "id": "pay-afterschool-teacher",
+      "category": "labor-provider",
+      "title": "방과후강사 월보수액 계산기",
+      "desc": "강사료 입력 → 월보수액·산재보험료 자동 산출",
+      "base": "deploy",
+      "path": "/pay-afterschool-teacher/",
+      "order": 10
+    },
+    {
+      "id": "preschool-parttime-contract-teacher",
+      "category": "labor-provider",
+      "title": "유치원 방과후·단시간 계약 관련",
+      "desc": "해당 도구 페이지로 이동",
+      "base": "deploy",
+      "path": "/preschool-parttime-contract-teacher/",
+      "order": 20
+    },
+
+    {
+      "id": "ordinary-wage",
+      "category": "edu-workers",
+      "title": "교육공무직 통상임금 계산기",
+      "desc": "직종별 보수표 반영",
+      "base": "deploy",
+      "path": "/ordinary-wage/",
+      "order": 10
+    },
+    {
+      "id": "cook-industrial-safety-education-pay",
+      "category": "edu-workers",
+      "title": "조리종사원 산업안전보건교육비 계산기",
+      "desc": "집체·온라인 교육비 산출",
+      "base": "deploy",
+      "path": "/cook-industrial-safety-education-pay/",
+      "order": 20
+    },
+    {
+      "id": "effect-of-working-during-vacation",
+      "category": "edu-workers",
+      "title": "방학중 비상시근로자 보수 영향 계산기",
+      "desc": "출근율·연차 산정",
+      "base": "deploy",
+      "path": "/effect-of-working-during-vacation/",
+      "order": 30
+    },
+    {
+      "id": "parttime-wage-calculator",
+      "category": "edu-workers",
+      "title": "단시간(시간제) 임금 계산기",
+      "desc": "기본 임금/수당 산출",
+      "base": "deploy",
+      "path": "/parttime-wage-calculator/",
+      "order": 40
+    },
+
+    {
+      "id": "annual-leave",
+      "category": "leave-allowance",
+      "title": "연차 계산",
+      "desc": "기본 연차 산정",
+      "base": "deploy",
+      "path": "/annual-leave/",
+      "order": 10
+    },
+    {
+      "id": "annual-leave-pay",
+      "category": "leave-allowance",
+      "title": "연차수당 계산",
+      "desc": "연차수당 산출",
+      "base": "deploy",
+      "path": "/annual-leave-pay/",
+      "order": 20
+    },
+    {
+      "id": "vacation-weekly-holiday-wage",
+      "category": "leave-allowance",
+      "title": "휴업·주휴·휴일수당 계산",
+      "desc": "주휴·휴일 관련 산식 정리",
+      "base": "deploy",
+      "path": "/vacation-weekly-holiday-wage/",
+      "order": 30
+    },
+
+    {
+      "id": "dc-retirement",
+      "category": "retirement",
+      "title": "DC 퇴직 관련",
+      "desc": "해당 도구 페이지로 이동",
+      "base": "deploy",
+      "path": "/dc-retirement/",
+      "order": 10
+    },
+
+    {
+      "id": "user-fee-ratio",
+      "category": "misc",
+      "title": "수익자부담경비 비율 계산",
+      "desc": "분담 비율·금액 산정",
+      "base": "deploy",
+      "path": "/user-fee-ratio/",
+      "order": 10
+    },
+    {
+      "id": "wage-ledger-2025",
+      "category": "misc",
+      "title": "임금대장(2025) 작성 보조",
+      "desc": "대장 작성 지원",
+      "base": "deploy",
+      "path": "/wage-ledger-2025/",
+      "order": 20
+    },
+    {
+      "id": "change-log",
+      "category": "misc",
+      "title": "변경 이력",
+      "desc": "업데이트 내역 확인",
+      "base": "deploy",
+      "path": "/change-log/",
+      "order": 90
+    }
+  ]
+}
