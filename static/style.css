@@ -333,3 +333,14 @@ textarea{ resize:vertical; }
   text-align:center;
   padding:14px 16px;
 }
+
+/* =============================
+   Link Card (Tools)
+   ============================= */
+a.card{
+  display:block;
+}
+a.card:hover{
+  border-color:var(--line2);
+  background:rgba(120,200,185,0.08);
+}
