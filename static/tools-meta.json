@@ -1,7 +1,8 @@
 {
   "bases": {
     "deploy": "https://edusprouthaey.co.kr",
-    "personal": "https://savinghaey.co.kr"
+    "personal": "https://savinghaey.co.kr",
+    "example": "https://example-tools.co.kr"
   },
   "categories": [
     { "id": "labor-provider", "title": "노무제공자 (방과후강사 등)", "order": 10 },
